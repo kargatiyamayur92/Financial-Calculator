@@ -74,9 +74,9 @@ export default function EmiCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Loan_Amount)}
+                  value={String(Loan_Amount)}
                   onChange={(event) =>
-                    dispatch(dispatch(set_Loan_Amount(Number(event.target.value))))
+                    dispatch(dispatch(set_Loan_Amount(String(event.target.value))))
                   }
                   placeholder="Enter loan amount"
                 />
@@ -95,9 +95,9 @@ export default function EmiCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Interest_Rate)}
+                  value={String(Interest_Rate)}
                   onChange={(event) =>
-                    dispatch(set_Interest_Rate(Number(event.target.value)))
+                    dispatch(set_Interest_Rate(String(event.target.value)))
                   }
                   placeholder="Enter annual interest rate"
                 />
@@ -116,9 +116,9 @@ export default function EmiCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Loan_Tenure)}
+                  value={String(Loan_Tenure)}
                   onChange={(event) =>
-                    dispatch(set_Loan_Tenure(Number(event.target.value) ))
+                    dispatch(set_Loan_Tenure(String(event.target.value) ))
                   }
                   placeholder="Enter loan tenure"
                 />

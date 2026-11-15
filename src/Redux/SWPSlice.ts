@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 interface SWP_type {
-    Initial_Investment: number,
-    Monthly_Withdrawal: number,
-    Expected_Return_Rate: number,
-    Investment_Period: number,
-    Total_Withdrawn: number,
-    Remaining_Balance: number,
-    Total_Value: number,
+    Initial_Investment: string
+    Monthly_Withdrawal: string
+    Expected_Return_Rate: string
+    Investment_Period: string
+    Total_Withdrawn: string
+    Remaining_Balance: string
+    Total_Value: string
 }
 
 const initialState: SWP_type = {
-    Initial_Investment: 0,
-    Monthly_Withdrawal: 0,
-    Expected_Return_Rate: 0,
-    Investment_Period: 0,
-    Total_Withdrawn: 0,
-    Remaining_Balance: 0,
-    Total_Value: 0,
+    Initial_Investment: "",
+    Monthly_Withdrawal: "",
+    Expected_Return_Rate: "",
+    Investment_Period: "",
+    Total_Withdrawn: "",
+    Remaining_Balance: "",
+    Total_Value: "",
 }
 
 export const SWPSLice = createSlice(
@@ -38,25 +38,25 @@ export const SWPSLice = createSlice(
                 state.Investment_Period = action.payload
             },
             resetSwp: (state) => {
-                state.Initial_Investment = 0,
-                    state.Monthly_Withdrawal = 0,
-                    state.Expected_Return_Rate = 0,
-                    state.Investment_Period = 0,
-                    state.Total_Withdrawn = 0,
-                    state.Remaining_Balance = 0,
-                    state.Total_Value = 0
+                state.Initial_Investment = ""
+                state.Monthly_Withdrawal = ""
+                state.Expected_Return_Rate = ""
+                state.Investment_Period = ""
+                state.Total_Withdrawn = ""
+                state.Remaining_Balance = ""
+                state.Total_Value = ""
             },
             calculate_SWP: (state) => {
-                let p: number = state.Initial_Investment
-                let w: number = state.Monthly_Withdrawal
-                let n: number = state.Investment_Period * 12
-                let r: number = state.Expected_Return_Rate / 1200
+                let p: number = Number(state.Initial_Investment)
+                let w: number = Number(state.Monthly_Withdrawal)
+                let n: number = Number(state.Investment_Period) * 12
+                let r: number = Number(state.Expected_Return_Rate) / 1200
 
-                let FV:number = Number(p * (Math.pow((1 + r), n)) - (w * (Math.pow((1 + r), n) - 1) / r))
+                let FV: number = Number(p * (Math.pow((1 + r), n)) - (w * (Math.pow((1 + r), n) - 1) / r))
 
-                state.Remaining_Balance = Math.floor(FV)
-                state.Total_Withdrawn = Number((w * n).toFixed(2))
-                state.Total_Value = state.Total_Withdrawn + state.Remaining_Balance
+                state.Remaining_Balance = String(Math.floor(FV))
+                state.Total_Withdrawn = String((w * n).toFixed(2))
+                state.Total_Value = String(Number(state.Total_Withdrawn) + Number(state.Remaining_Balance))
 
             }
         }

@@ -3,21 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 type Investment_Frequency_Type = "Monthly" | "Quartely" | "Yearly"
 
 interface SIP_types {
-    Monthaly_Investment: number,
-    Expected_Return_Rate: number,
-    Investment_Period: number,
+    Monthaly_Investment: string,
+    Expected_Return_Rate: string,
+    Investment_Period: string,
     Investment_Frequency?: Investment_Frequency_Type,
-    Maturity_Amount: number,
-    Growth?: number
+    Maturity_Amount: string,
+    Growth?: string
 }
 
 const initialState: SIP_types = {
-    Monthaly_Investment: 0,
-    Expected_Return_Rate: 0,
-    Investment_Period: 0,
+    Monthaly_Investment: "",
+    Expected_Return_Rate: "",
+    Investment_Period: "",
     Investment_Frequency: "Yearly",
-    Maturity_Amount: 0,
-    Growth: 0
+    Maturity_Amount: "",
+    Growth: ""
 }
 
 export const SIPSlice = createSlice(
@@ -41,24 +41,24 @@ export const SIPSlice = createSlice(
 
             },
             CalculateSIP: (state) => {
-                let r: number = (state.Expected_Return_Rate / (1200))
-                let n: number = state.Investment_Period * 12
+                let r: number = (Number(state.Expected_Return_Rate) / (1200))
+                let n: number = Number(state.Investment_Period) * 12
 
-                let FV: number = state.Monthaly_Investment * ((((Math.pow((1 + r), n)) - 1) / r))
+                let FV: number = Number(state.Monthaly_Investment) * ((((Math.pow((1 + r), n)) - 1) / r))
 
-                state.Maturity_Amount = (Math.floor(FV))
+                state.Maturity_Amount = String(Math.floor(FV))
                 console.log(FV)
 
-                let Growth: number = ((FV - (state.Monthaly_Investment * 12 * state.Investment_Period)) / (state.Monthaly_Investment * 12 * state.Investment_Period)) * 100
-                state.Growth = Number(Growth.toFixed(2))
+                let Growth: number = ((FV - (Number(state.Monthaly_Investment) * 12 * Number(state.Investment_Period))) / (Number(state.Monthaly_Investment) * 12 * Number(state.Investment_Period))) * 100
+                state.Growth = String(Growth.toFixed(2))
 
             },
             resetSip: (state) => {
-                state.Monthaly_Investment = 0;
-                state.Expected_Return_Rate = 0
-                state.Investment_Period = 0
+                state.Monthaly_Investment = "";
+                state.Expected_Return_Rate = ""
+                state.Investment_Period = ""
                 state.Investment_Frequency = "Yearly"
-                state.Maturity_Amount = 0
+                state.Maturity_Amount = ""
             }
 
         }

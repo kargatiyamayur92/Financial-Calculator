@@ -62,10 +62,10 @@ export default function LumpsumCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Intial_Investment)}
+                  value={String(Intial_Investment)}
                   onChange={(event) =>
                     dispatch(
-                      set_Intial_Investment(Number(event.target.value))
+                      set_Intial_Investment(String(event.target.value))
                     )
                   }
                   placeholder="Enter initial investment"
@@ -85,10 +85,10 @@ export default function LumpsumCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Expected_Return_Rate)}
+                  value={String(Expected_Return_Rate)}
                   onChange={(event) =>
                     dispatch(
-                      set_Expected_Return_Rate(Number(event.target.value))
+                      set_Expected_Return_Rate(String(event.target.value))
                     )
                   }
                   placeholder="Enter expected annual return"
@@ -108,10 +108,10 @@ export default function LumpsumCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(duration)}
+                  value={String(duration)}
                   onChange={(event) =>
                     dispatch(
-                      set_duration(Number(event.target.value))
+                      set_duration(String(event.target.value))
                     )
                   }
                   placeholder="Enter investment duration"

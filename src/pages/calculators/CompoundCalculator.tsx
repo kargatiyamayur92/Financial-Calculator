@@ -71,9 +71,9 @@ export default function CompoundCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Principal_Amount)}
+                  value={String(Principal_Amount)}
                   onChange={(event) =>
-                    dispatch(Set_Principal_Amount(Number(event.target.value)))
+                    dispatch(Set_Principal_Amount(String(event.target.value)))
                   }
                   placeholder="Enter principal amount"
                 />
@@ -92,9 +92,9 @@ export default function CompoundCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Interest_Rate)}
+                  value={String(Interest_Rate)}
                   onChange={(event) =>
-                    dispatch(Set_Interest_Rate(Number(event.target.value)))
+                    dispatch(Set_Interest_Rate(String(event.target.value)))
                   }
                   placeholder="Enter annual interest rate"
                 />
@@ -113,9 +113,9 @@ export default function CompoundCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Investment_Period)}
+                  value={String(Investment_Period)}
                   onChange={(event) =>
-                    dispatch(Set_Investment_Period(Number(event.target.value)))
+                    dispatch(Set_Investment_Period(String(event.target.value)))
                   }
                   placeholder="Enter investment period"
                 />

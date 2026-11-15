@@ -79,9 +79,9 @@ export default function RdCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Monthly_Deposit)}
+                  value={String(Monthly_Deposit)}
                   onChange={(event) =>
-                    dispatch(set_Monthaly_Deposit(Number(event.target.value)))
+                    dispatch(set_Monthaly_Deposit(String(event.target.value)))
                   }
                   placeholder="Enter monthly deposit"
                 />
@@ -100,10 +100,10 @@ export default function RdCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Interest_Rate)}
+                  value={String(Interest_Rate)}
                   onChange={(event) =>
                     dispatch(
-                      set_Expected_Return_Rate(Number(event.target.value)),
+                      set_Expected_Return_Rate(String(event.target.value)),
                     )
                   }
                   placeholder="Enter annual interest rate"
@@ -123,7 +123,7 @@ export default function RdCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Investment_Period)}
+                  value={String(Investment_Period)}
                   onChange={(event) =>
                     dispatch(set_Investment_Period(event.target.value))
                   }

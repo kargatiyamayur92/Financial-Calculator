@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface Inflation_Type {
-    Current_Price: number
-    Inflation_Rate: number
-    Time_Period: number
-    Future_Cost: number
-    Price_Increase: number
-    Increase_Percentage: number
-    Current_Purchasing_Power: number
+    Current_Price: string
+    Inflation_Rate: string
+    Time_Period: string
+    Future_Cost: string
+    Price_Increase: string
+    Increase_Percentage: string
+    Current_Purchasing_Power: string
 }
 
 const initialState: Inflation_Type = {
-    Current_Price: 0,
-    Inflation_Rate: 0,
-    Time_Period: 0,
-    Future_Cost: 0,
-    Price_Increase: 0,
-    Increase_Percentage: 0,
-    Current_Purchasing_Power: 0,
+    Current_Price: "",
+    Inflation_Rate: "",
+    Time_Period: "",
+    Future_Cost: "",
+    Price_Increase: "",
+    Increase_Percentage: "",
+    Current_Purchasing_Power: "",
 }
 
 export const InflationSlice = createSlice(
@@ -35,28 +35,28 @@ export const InflationSlice = createSlice(
                 state.Time_Period = action.payload
             },
             resetInflation: (state) => {
-                state.Current_Price = 0
-                state.Inflation_Rate = 0
-                state.Time_Period = 0
-                state.Future_Cost = 0
-                state.Price_Increase = 0
-                state.Increase_Percentage = 0
-                state.Current_Purchasing_Power = 0
+                state.Current_Price = ""
+                state.Inflation_Rate = ""
+                state.Time_Period = ""
+                state.Future_Cost = ""
+                state.Price_Increase = ""
+                state.Increase_Percentage = ""
+                state.Current_Purchasing_Power = ""
             },
             calculate_inflaction: (state) => {
-                let p: number = state.Current_Price
-                let r: number = state.Inflation_Rate / 100
-                let n: number = state.Time_Period
+                let p: number = Number(state.Current_Price)
+                let r: number = Number(state.Inflation_Rate) / 100
+                let n: number = Number(state.Time_Period)
 
                 let FV: number = p * (Math.pow((1 + r), n))
 
-                state.Future_Cost = Math.floor(FV)
+                state.Future_Cost = String(Math.floor(FV))
 
-                state.Price_Increase = Math.floor(FV - state.Current_Price)
-                state.Increase_Percentage = Number((((FV - state.Current_Price) / p) * 100).toFixed(2))
+                state.Price_Increase = String(Math.floor(FV - Number(state.Current_Price)))
+                state.Increase_Percentage = String((((FV - Number(state.Current_Price)) / p) * 100).toFixed(2))
 
                 let Purchasingpower: number = ((p * n) / (Math.pow((1 + r), n)))
-                state.Current_Purchasing_Power = Number(Purchasingpower.toFixed(2))
+                state.Current_Purchasing_Power = String(Purchasingpower.toFixed(2))
 
             }
         }

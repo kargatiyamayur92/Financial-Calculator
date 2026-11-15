@@ -82,9 +82,9 @@ export default function SwpCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Initial_Investment)}
+                  value={String(Initial_Investment)}
                   onChange={(event) =>
-                    dispatch(set_Initial_Investment(Number(event.target.value)))
+                    dispatch(set_Initial_Investment(String(event.target.value)))
                   }
                   placeholder="Enter initial investment corpus"
                 />
@@ -103,9 +103,9 @@ export default function SwpCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Monthly_Withdrawal)}
+                  value={String(Monthly_Withdrawal)}
                   onChange={(event) =>
-                    dispatch(set_Monthly_Withdrawal(Number(event.target.value)))
+                    dispatch(set_Monthly_Withdrawal(String(event.target.value)))
                   }
                   placeholder="Enter monthly withdrawal"
                 />
@@ -124,10 +124,10 @@ export default function SwpCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Expected_Return_Rate)}
+                  value={String(Expected_Return_Rate)}
                   onChange={(event) =>
                     dispatch(
-                      set_Expected_Return_Rate(Number(event.target.value)),
+                      set_Expected_Return_Rate(String(event.target.value)),
                     )
                   }
                   placeholder="Enter expected annual return"
@@ -147,9 +147,9 @@ export default function SwpCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Investment_Period)}
+                  value={String(Investment_Period)}
                   onChange={(event) =>
-                    dispatch(set_Investment_Period(Number(event.target.value)))
+                    dispatch(set_Investment_Period(String(event.target.value)))
                   }
                   placeholder="Enter withdrawal duration"
                 />

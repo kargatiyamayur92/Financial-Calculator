@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface EMI {
-    Loan_Amount: number,
-    Interest_Rate: number,
-    Loan_Tenure: number,
-    Monthly_EMI: number,
-    Total_Interest: number,
-    Total_Payment: number
+    Loan_Amount: string
+    Interest_Rate: string
+    Loan_Tenure: string
+    Monthly_EMI: string
+    Total_Interest: string
+    Total_Payment: string
 }
 
 const initialState: EMI = {
-    Loan_Amount: 0,
-    Interest_Rate: 0,
-    Loan_Tenure: 0,
-    Monthly_EMI: 0,
-    Total_Interest: 0,
-    Total_Payment: 0,
+    Loan_Amount: "",
+    Interest_Rate: "",
+    Loan_Tenure: "",
+    Monthly_EMI: "",
+    Total_Interest: "",
+    Total_Payment: "",
 }
 
 
@@ -34,23 +34,23 @@ export const EMISlice = createSlice(
                 state.Loan_Tenure = action.payload
             },
             resetEmi: (state) => {
-                state.Loan_Amount = 0;
-                state.Interest_Rate = 0;
-                state.Loan_Tenure = 0;
-                state.Monthly_EMI = 0;
-                state.Total_Interest = 0;
-                state.Total_Payment = 0;
+                state.Loan_Amount = ""
+                state.Interest_Rate = ""
+                state.Loan_Tenure = ""
+                state.Monthly_EMI = ""
+                state.Total_Interest = ""
+                state.Total_Payment = ""
             },
             CalculateEMI: (state) => {
-                let p: number = state.Loan_Amount
-                let r: number = state.Interest_Rate / 1200
-                let n: number = state.Loan_Tenure*12
+                let p: number = Number(state.Loan_Amount)
+                let r: number = Number(state.Interest_Rate) / 1200
+                let n: number = Number(state.Loan_Tenure) * 12
 
                 let EMI: number = (p * r * (Math.pow((1 + r), n))) / (Math.pow((1 + r), n) - 1)
 
-                state.Monthly_EMI = Number(EMI.toFixed(2))
-                state.Total_Payment = Number((EMI*n).toFixed(2))
-                state.Total_Interest = Number((state.Total_Payment-p).toFixed(2))
+                state.Monthly_EMI = String(EMI.toFixed(2))
+                state.Total_Payment = String((EMI * n).toFixed(2))
+                state.Total_Interest = String((Number(state.Total_Payment) - p).toFixed(2))
                 console.log(EMI)
             }
         }

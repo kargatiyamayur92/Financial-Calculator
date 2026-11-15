@@ -84,9 +84,9 @@ export default function InflationCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Current_Price)}
+                  value={String(Current_Price)}
                   onChange={(event) =>
-                    dispatch(setCurrentPRice(Number(event.target.value)))
+                    dispatch(setCurrentPRice(String(event.target.value)))
                   }
                   placeholder="Enter current cost / amount"
                 />
@@ -105,9 +105,9 @@ export default function InflationCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Inflation_Rate)}
+                  value={String(Inflation_Rate)}
                   onChange={(event) =>
-                    dispatch(setInflation_Rate(Number(event.target.value)))
+                    dispatch(setInflation_Rate(String(event.target.value)))
                   }
                   placeholder="Enter annual inflation rate"
                 />
@@ -126,9 +126,9 @@ export default function InflationCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Time_Period)}
+                  value={String(Time_Period)}
                   onChange={(event) =>
-                    dispatch(setTime_Period(Number(event.target.value)))
+                    dispatch(setTime_Period(String(event.target.value)))
                   }
                   placeholder="Enter time period"
                 />

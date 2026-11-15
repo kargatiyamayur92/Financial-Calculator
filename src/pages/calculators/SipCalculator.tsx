@@ -1,9 +1,4 @@
-import {
-  RotateCcw,
-
-  Calculator,
-  
-} from "lucide-react";
+import { RotateCcw, Calculator } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../Redux/Store";
 import {
@@ -13,7 +8,6 @@ import {
   set_Investment_Period,
   set_Monthaly_Investment,
 } from "../../Redux/SIPSlice";
-
 
 export default function SipCalculator() {
   const dispatch = useDispatch<AppDispatch>();
@@ -55,9 +49,7 @@ export default function SipCalculator() {
           <div className="panel-heading">
             <div>
               <h3>Monthly contributions</h3>
-              
             </div>
-          
           </div>
           <div className="field-list calculator-fields-sip">
             <div className="field-group" key="monthlyInvestment">
@@ -72,9 +64,9 @@ export default function SipCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Monthaly_Investment)}
+                  value={String(Monthaly_Investment)}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    dispatch(set_Monthaly_Investment(Number(e.target.value)));
+                    dispatch(set_Monthaly_Investment(e.target.value));
                     console.dir(e.target.value);
                   }}
                   placeholder="Enter monthly investment"
@@ -94,10 +86,10 @@ export default function SipCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Expected_Return_Rate)}
+                  value={String(Expected_Return_Rate)}
                   onChange={(event) =>
                     dispatch(
-                      set_Expected_Return_Rate(Number(event.target.value)),
+                      set_Expected_Return_Rate(String(event.target.value)),
                     )
                   }
                   placeholder="Enter expected annual return"
@@ -117,9 +109,9 @@ export default function SipCalculator() {
                   min="0"
                   step="any"
                   inputMode="decimal"
-                  value={Number(Investment_Period)}
+                  value={String(Investment_Period)}
                   onChange={(event) =>
-                    dispatch(set_Investment_Period(Number(event.target.value)))
+                    dispatch(set_Investment_Period(String(event.target.value)))
                   }
                   placeholder="Enter investment duration"
                 />
@@ -145,16 +137,13 @@ export default function SipCalculator() {
               <RotateCcw size={15} /> Reset inputs
             </button>
           </div>
-      
         </section>
 
         <section className="panel result-panel">
           <div className="panel-heading">
             <div>
               <h3>Calculation results</h3>
-              
             </div>
-            
           </div>
           <div className="result-highlight">
             <span>Estimated result</span>
@@ -173,7 +162,6 @@ export default function SipCalculator() {
               <strong>{Number(Growth)}</strong>
             </div>
           </div>
-          
         </section>
       </div>
     </div>

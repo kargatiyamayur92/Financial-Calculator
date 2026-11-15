@@ -79,9 +79,9 @@ export default function FdCalculator() {
                 min="0"
                 step="any"
                 inputMode="decimal"
-                value={Number(Deposit_Amount)}
+                value={String(Deposit_Amount)}
                 onChange={(event) =>
-                  dispatch(Set_Deposit_Amount(Number(event.target.value)))
+                  dispatch(Set_Deposit_Amount(String(event.target.value)))
                 }
                 placeholder="Enter deposit amount"
               />
@@ -100,7 +100,7 @@ export default function FdCalculator() {
                 min="0"
                 step="any"
                 inputMode="decimal"
-                value={Number(Interest_Rate)}
+                value={String(Interest_Rate)}
                 onChange={(event) =>
                   dispatch(Set_Interest_Rate(event.target.value))
                 }
@@ -121,9 +121,9 @@ export default function FdCalculator() {
                 min="0"
                 step="any"
                 inputMode="decimal"
-                value={Number(Investment_Period)}
+                value={String(Investment_Period)}
                 onChange={(event) =>
-                  dispatch(Set_Investment_Period(Number(event.target.value)))
+                  dispatch(Set_Investment_Period(String(event.target.value)))
                 }
                 placeholder="Enter deposit tenure"
               />

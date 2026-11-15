@@ -2,21 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 interface RD_types {
-    Monthly_Deposit: number
-    Interest_Rate: number
-    Investment_Period: number
-    Maturity_Amount: number
-    Total_Investment: number
-    Total_Interest: number
+    Monthly_Deposit: string
+    Interest_Rate: string
+    Investment_Period: string
+    Maturity_Amount: string
+    Total_Investment: string
+    Total_Interest: string
 }
 
 const initialState: RD_types = {
-    Monthly_Deposit: 0,
-    Interest_Rate: 0,
-    Investment_Period: 0,
-    Maturity_Amount: 0,
-    Total_Investment: 0,
-    Total_Interest: 0,
+    Monthly_Deposit: "",
+    Interest_Rate: "",
+    Investment_Period: "",
+    Maturity_Amount: "",
+    Total_Investment: "",
+    Total_Interest: "",
 }
 
 export const RDSlice = createSlice(
@@ -36,28 +36,28 @@ export const RDSlice = createSlice(
 
             },
             Calculate_RD: (state) => {
-                let p: number = state.Monthly_Deposit
-                let r: number = (state.Interest_Rate / (1200))
-                let n: number = state.Investment_Period
+                let p: number = Number(state.Monthly_Deposit)
+                let r: number = (Number(state.Interest_Rate) / (1200))
+                let n: number = Number(state.Investment_Period)
 
                 let FV: number = p * ((Math.pow((1 + r), n) - 1) / r) * (1 + r)
 
-                state.Maturity_Amount = (Math.floor(FV))
+                state.Maturity_Amount = String(Math.floor(FV))
                 //console.log(FV)
 
-                let Total_Interest: number = FV - (p* state.Investment_Period)
+                let Total_Interest: number = FV - (p * Number(state.Investment_Period))
 
-                state.Total_Interest = Number(Total_Interest.toFixed(2))
-                state.Total_Investment = p * state.Investment_Period
+                state.Total_Interest = String(Total_Interest.toFixed(2))
+                state.Total_Investment = String(p * Number(state.Investment_Period))
 
             },
             resetRD: (state) => {
-                state.Monthly_Deposit = 0
-                state.Interest_Rate = 0
-                state.Investment_Period = 0
-                state.Maturity_Amount = 0
-                state.Total_Investment = 0
-                state.Total_Interest = 0
+                state.Monthly_Deposit = ""
+                state.Interest_Rate = ""
+                state.Investment_Period = ""
+                state.Maturity_Amount = ""
+                state.Total_Investment = ""
+                state.Total_Interest = ""
             }
 
         }

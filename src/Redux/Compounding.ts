@@ -2,20 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 interface Compounding {
-    Principal_Amount: number;
-    Interest_Rate: number;
-    Investment_Period: number;
-    Maturity_Amount: number;
-    Compound_Interest: number;
-    Growth_Percentage: number;
+    Principal_Amount: String;
+    Interest_Rate: String;
+    Investment_Period: String;
+    Maturity_Amount: String;
+    Compound_Interest: String;
+    Growth_Percentage: String;
 }
 const initialState: Compounding = {
-    Principal_Amount: 0,
-    Interest_Rate: 0,
-    Investment_Period: 0,
-    Maturity_Amount: 0,
-    Compound_Interest: 0,
-    Growth_Percentage: 0,
+    Principal_Amount: "",
+    Interest_Rate: "",
+    Investment_Period: "",
+    Maturity_Amount: "",
+    Compound_Interest: "",
+    Growth_Percentage: "",
 }
 
 export const CompoundingSlice = createSlice(
@@ -34,27 +34,27 @@ export const CompoundingSlice = createSlice(
             },
 
             resetCompound: (state) => {
-                state.Principal_Amount = 0;
-                state.Interest_Rate = 0;
-                state.Investment_Period = 0;
-                state.Maturity_Amount = 0;
-                state.Compound_Interest = 0;
-                state.Growth_Percentage = 0;
+                state.Principal_Amount = ""
+                state.Interest_Rate = ""
+                state.Investment_Period = ""
+                state.Maturity_Amount = ""
+                state.Compound_Interest = ""
+                state.Growth_Percentage = ""
             },
             Calculate_compounding: (state) => {
-                let r: number = state.Interest_Rate / 100
-                let n: number = state.Investment_Period
-                let p: number = state.Principal_Amount
+                let r: number = Number(state.Interest_Rate) / 100
+                let n: number = Number(state.Investment_Period)
+                let p: number = Number(state.Principal_Amount)
 
                 let FV: number = p * (Math.pow((1 + r), n))
 
-                state.Maturity_Amount = Number(FV.toFixed(2))
+                state.Maturity_Amount = String(FV.toFixed(2))
 
-                let Growth: number = Number((((FV - p) / p) * 100).toFixed(2))
+                let Growth: String = String((((FV - p) / p) * 100).toFixed(2))
 
                 state.Growth_Percentage = Growth
 
-                let Compound_Interest: number = Number((FV - p).toFixed(2))
+                let Compound_Interest: String = String((FV - p).toFixed(2))
 
                 state.Compound_Interest = Compound_Interest
 
