@@ -144,7 +144,7 @@ export default function InflationCalculator() {
                 dispatch(calculate_inflaction());
               }}
             >
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate Inflaction
             </button>
             <button
               className="reset-button"

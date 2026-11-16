@@ -165,7 +165,7 @@ export default function SwpCalculator() {
                 dispatch(calculate_SWP());
               }}
             >
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate SWP
             </button>
             <button
               className="reset-button"

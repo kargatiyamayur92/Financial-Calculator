@@ -130,7 +130,7 @@ export default function EmiCalculator() {
             <button onClick={()=>{
                 dispatch(CalculateEMI())
             }} className="primary-button" type="button">
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate EMI
             </button>
             <button
               className="reset-button"

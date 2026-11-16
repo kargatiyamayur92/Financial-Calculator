@@ -135,7 +135,7 @@ export default function FdCalculator() {
             <button className="primary-button" type="button" onClick={()=>{
                 dispatch(Calculate_FD())
             }}>
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate FD
             </button>
             <button
               className="reset-button"

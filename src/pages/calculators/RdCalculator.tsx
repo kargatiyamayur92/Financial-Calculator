@@ -141,7 +141,7 @@ export default function RdCalculator() {
                 dispatch(Calculate_RD());
               }}
             >
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate RD
             </button>
             <button
               className="reset-button"

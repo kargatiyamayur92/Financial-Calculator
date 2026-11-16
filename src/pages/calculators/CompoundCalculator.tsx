@@ -131,7 +131,7 @@ export default function CompoundCalculator() {
                 dispatch(Calculate_compounding());
               }}
             >
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate Compound
             </button>
             <button
               className="reset-button"

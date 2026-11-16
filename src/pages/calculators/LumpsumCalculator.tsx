@@ -122,7 +122,7 @@ export default function LumpsumCalculator() {
           </div>
           <div className="form-actions">
             <button onClick={()=>dispatch(calculate_Lumpsum())} className="primary-button" type="button">
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} /> Calculate Lumpsum
             </button>
             <button
               className="reset-button"

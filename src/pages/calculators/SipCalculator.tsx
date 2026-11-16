@@ -127,7 +127,7 @@ export default function SipCalculator() {
               className="primary-button"
               type="button"
             >
-              <Calculator size={16} /> Add calculation logic
+              <Calculator size={16} />Calclulate SIP
             </button>
             <button
               className="reset-button"
