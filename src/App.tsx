@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ArrowUpRight, CircleHelp } from "lucide-react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
@@ -11,6 +11,7 @@ import FdCalculator from "./pages/calculators/FdCalculator";
 import RdCalculator from "./pages/calculators/RdCalculator";
 import InflationCalculator from "./pages/calculators/InflationCalculator";
 import SwpCalculator from "./pages/calculators/SwpCalculator";
+import { configureAndroidUI } from "./native/android";
 
 const pageMeta: Partial<
   Record<CalculatorId, { title: string; subtitle: string }>
@@ -63,6 +64,11 @@ export default function App() {
     inflation: <InflationCalculator />,
     swp: <SwpCalculator />,
   };
+
+  useEffect(()=>{
+    configureAndroidUI()
+  },[])
+
   return (
     <div className="app-shell">
       <Sidebar
