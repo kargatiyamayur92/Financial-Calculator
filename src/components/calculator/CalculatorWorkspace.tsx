@@ -56,7 +56,7 @@ export default function CalculatorWorkspace({
             <span className="step-count">01 / INPUTS</span>
           </div>
           <div className="field-list">
-            {fields.map((field, index) => (
+            {fields.map((field) => (
               <div className="field-group" key={field.key}>
                 <div className="field-label-row">
                   <label htmlFor={`${field.key}-input`}>{field.label}</label>
