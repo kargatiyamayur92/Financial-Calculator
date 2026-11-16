@@ -1,0 +1,6 @@
+name: Build Finance Calculator APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
